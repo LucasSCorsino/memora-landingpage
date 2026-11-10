@@ -1,0 +1,997 @@
+/* ==========================================================================
+   MEMORA — SECTION STYLES (SEÇÕES 5.1 A 5.14)
+   ========================================================================== */
+
+.section {
+  position: relative;
+  padding-block: var(--section-py);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.section-header {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+  margin-bottom: clamp(2.75rem, 5vw, 4.25rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: var(--text-h2);
+  letter-spacing: -0.03em;
+}
+
+.section-subtitle {
+  font-size: var(--text-body-lg);
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+
+/* ==========================================================================
+   5.2 HERO SECTION (Vórtice Sináptico Interativo + Mockup #FAFAF7)
+   ========================================================================== */
+.hero-section {
+  position: relative;
+  padding-top: clamp(3.5rem, 7vw, 6rem);
+  padding-bottom: clamp(4.5rem, 8vw, 7rem);
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+}
+
+#synapse-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 920px;
+  margin-inline: auto;
+}
+
+.hero-title {
+  font-size: var(--text-hero);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  margin-top: 1.25rem;
+  margin-bottom: 1.35rem;
+}
+
+.hero-subtitle {
+  font-size: var(--text-body-lg);
+  color: var(--text-secondary);
+  max-width: 64ch;
+  margin-bottom: 2.25rem;
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.hero-meta-note {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 3.25rem;
+}
+
+/* Palco Interativo do Produto no Hero (Inspiração Antigravity Showcase) */
+.hero-showcase {
+  width: 100%;
+  max-width: 1060px;
+  margin-inline: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-mockup-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+/* Simulador de Flashcard FSRS Interativo dentro do Mockup #FAFAF7 */
+.fsrs-card-interactive {
+  background: var(--app-surface-card);
+  border: 1px solid var(--app-border);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.1rem;
+  min-height: 250px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.fsrs-card-question {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--app-text-primary);
+  line-height: 1.35;
+}
+
+.fsrs-card-answer {
+  font-size: 0.92rem;
+  color: var(--app-text-secondary);
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--app-surface-muted);
+  border-left: 3px solid var(--memora-blue);
+  display: none;
+}
+
+.fsrs-card-answer.is-revealed {
+  display: block;
+}
+
+.fsrs-rating-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+}
+
+.fsrs-rate-btn {
+  padding: 0.6rem 0.5rem;
+  border-radius: var(--radius-md);
+  background: var(--app-surface-muted);
+  border: 1px solid var(--app-border);
+  color: var(--app-text-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  transition: all var(--transition-fast);
+}
+
+.fsrs-rate-btn span {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--app-text-muted);
+}
+
+.fsrs-rate-btn:hover,
+.fsrs-rate-btn.is-selected {
+  background: var(--memora-blue);
+  color: #FFFFFF;
+  border-color: var(--memora-blue);
+}
+
+.fsrs-rate-btn:hover span,
+.fsrs-rate-btn.is-selected span {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.one-tap-session-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.one-tap-trigger {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  border-radius: var(--radius-pill);
+  background: var(--memora-blue);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 20px rgba(0, 161, 224, 0.3);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.one-tap-trigger:hover {
+  background: #008EC7;
+  transform: scale(1.02);
+}
+
+/* ==========================================================================
+   5.3 SEÇÃO O PROBLEMA (Dores Comuns + Espaço para Pesquisa)
+   ========================================================================== */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.problem-card {
+  background: var(--card-bg-gradient);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.85rem 1.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  min-width: 0;
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.problem-card:hover {
+  border-color: var(--border-brand);
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.problem-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--memora-blue-soft);
+  border: 1px solid var(--border-brand);
+  color: var(--memora-blue);
+  display: grid;
+  place-items: center;
+}
+
+.problem-card__title {
+  font-size: 1.18rem;
+}
+
+.problem-card__desc {
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+}
+
+/* Regra global de blindagem de Grid/Flex + Efeito Spotlight interativo nos cards */
+.problem-card,
+.step-card,
+.audience-card,
+.pricing-card,
+.trust-card,
+.partner-slot,
+.tbd-box,
+.roadmap-card,
+.app-window {
+  min-width: 0;
+}
+
+.problem-card,
+.step-card,
+.audience-card,
+.pricing-card,
+.trust-card,
+.b2b-banner,
+.community-highlight-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.problem-card::after,
+.step-card::after,
+.audience-card::after,
+.pricing-card::after,
+.trust-card::after,
+.b2b-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, 0%),
+    rgba(0, 161, 224, 0.13),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.problem-card:hover::after,
+.step-card:hover::after,
+.audience-card:hover::after,
+.pricing-card:hover::after,
+.trust-card:hover::after,
+.b2b-banner:hover::after {
+  opacity: 1;
+}
+
+.problem-card > *,
+.step-card > *,
+.audience-card > *,
+.pricing-card > *,
+.trust-card > *,
+.b2b-banner > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Espaçamento consistente entre irmãos dentro de qualquer container de seção */
+.section > .container > * + *:not(.section-header) {
+  margin-top: 2.5rem;
+}
+
+.section > .container > .section-header + * {
+  margin-top: 0;
+}
+
+/* Animação de fluxo luminoso nas linhas conectoras (Passos e Parceiros) */
+@keyframes synapticFlowLine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.steps-timeline::before,
+.partners-cycle::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border-brand) 20%,
+    var(--memora-blue) 50%,
+    var(--border-brand) 80%,
+    transparent 100%
+  );
+}
+
+/* ==========================================================================
+   5.4 COMO FUNCIONA (Fluxo em 4 Passos Conectados + Sessão em 1 Toque)
+   ========================================================================== */
+.steps-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Linha conectora sináptica entre os cards no desktop */
+.steps-timeline::before {
+  content: '';
+  position: absolute;
+  top: 2.95rem;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-brand) 15%,
+    var(--memora-blue) 50%,
+    var(--border-brand) 85%,
+    transparent
+  );
+  opacity: 0.55;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.step-card {
+  background: var(--card-bg-gradient);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 1.5rem;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.step-card:hover {
+  border-color: var(--border-brand);
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.step-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.step-card__node {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--memora-blue);
+  color: var(--memora-blue);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 14px rgba(0, 161, 224, 0.28);
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.step-card:hover .step-card__node {
+  background: var(--memora-blue);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.step-card__num {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--memora-blue);
+  background: var(--memora-blue-soft);
+  border: 1px solid var(--border-brand);
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+  width: fit-content;
+}
+
+.step-card__title {
+  font-size: 1.15rem;
+  line-height: 1.3;
+}
+
+.step-card__desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   5.5 FUNCIONALIDADES (Antigravity Interactive Suite + Pilares)
+   ========================================================================== */
+.suite-container {
+  background: radial-gradient(120% 100% at 50% 0%, rgba(0, 161, 224, 0.08) 0%, var(--bg-secondary) 65%);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--radius-2xl);
+  padding: clamp(1.5rem, 3.5vw, 3rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.suite-dock-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.25rem;
+}
+
+.suite-panel {
+  display: none;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 2.25rem;
+  align-items: center;
+  animation: suiteFadeIn 0.4s var(--ease-out-expo);
+}
+
+.suite-panel.is-active {
+  display: grid;
+}
+
+@keyframes suiteFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.suite-panel__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.suite-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.4rem;
+}
+
+.suite-panel__list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+}
+
+.suite-panel__list li svg {
+  color: var(--memora-blue);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ==========================================================================
+   5.6 COMUNIDADE (SEÇÃO DE DESTAQUE — EFEITO DE REDE)
+   ========================================================================== */
+.community-highlight-box {
+  background: linear-gradient(160deg, var(--bg-surface) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border-brand);
+  border-radius: var(--radius-2xl);
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+  box-shadow: 0 24px 80px -20px rgba(0, 161, 224, 0.2);
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Reações Pré-definidas Interativas (👏 🔥 🧠 💡 ❤️ 😂) */
+.reaction-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-top: 0.85rem;
+}
+
+.reaction-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.32rem 0.68rem;
+  border-radius: var(--radius-pill);
+  background: var(--app-surface-muted);
+  border: 1px solid var(--app-border);
+  color: var(--app-text-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.reaction-pill:hover,
+.reaction-pill.is-reacted {
+  background: rgba(0, 161, 224, 0.16);
+  border-color: var(--memora-blue);
+  color: #0077A8;
+  transform: translateY(-2px);
+}
+
+.roadmap-card {
+  background: var(--bg-surface-elevated);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* ==========================================================================
+   5.7 PARA QUEM É (Universitários, Vestibulandos, Concurseiros — 18+)
+   ========================================================================== */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.audience-card {
+  background: var(--card-bg-gradient);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.audience-card:hover {
+  border-color: var(--memora-blue);
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.audience-block {
+  padding: 0.95rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.88rem;
+}
+
+.audience-block--benefit {
+  border-color: var(--border-brand);
+  background: var(--memora-blue-soft);
+}
+
+/* ==========================================================================
+   5.8 PROVA & DADOS DE MERCADO (Placeholders Rigorosamente Sinalizados)
+   ========================================================================== */
+.data-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.metric-placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.metric-slot {
+  padding: 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px dashed var(--border-brand);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.metric-slot__value {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--memora-blue);
+}
+
+/* ==========================================================================
+   5.9 PLANOS E PREÇOS (Matriz 2 Colunas Estilo Antigravity Pricing)
+   ========================================================================== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.pricing-card {
+  background: var(--card-bg-gradient);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  position: relative;
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+}
+
+.pricing-card--featured {
+  background: radial-gradient(120% 90% at 50% 0%, rgba(0, 161, 224, 0.14) 0%, rgba(12, 18, 32, 0.96) 70%);
+  border-color: var(--memora-blue);
+  box-shadow: 0 28px 68px -16px rgba(0, 161, 224, 0.25), inset 0 1px 0 0 rgba(125, 211, 252, 0.35);
+}
+
+[data-theme="light"] .pricing-card--featured {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F0F9FF 100%);
+}
+
+.pricing-price {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pricing-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-block: 0.5rem;
+  flex: 1;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.pricing-features li svg {
+  color: var(--memora-blue);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* ==========================================================================
+   5.10 SEGURANÇA E CONFIANÇA + 5.11 PARCEIROS E CUPONS
+   ========================================================================== */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.trust-card {
+  background: var(--card-bg-gradient);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 1.85rem 1.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.trust-card:hover {
+  border-color: var(--border-brand);
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.b2b-banner {
+  background: radial-gradient(100% 140% at 0% 0%, rgba(0, 161, 224, 0.1) 0%, var(--bg-secondary) 75%);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--card-shadow);
+  border-radius: var(--radius-xl);
+  padding: 2.1rem 2.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.partners-cycle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.65rem;
+  position: relative;
+}
+
+.partners-cycle::before {
+  content: '';
+  position: absolute;
+  top: 2.95rem;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-brand) 15%,
+    var(--memora-blue) 50%,
+    var(--border-brand) 85%,
+    transparent
+  );
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.partners-cycle .problem-card {
+  position: relative;
+  z-index: 1;
+  padding: 1.85rem 1.65rem;
+  gap: 0.95rem;
+}
+
+.partners-cycle .problem-card:hover .step-card__node {
+  background: var(--memora-blue);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.partner-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.partner-slot {
+  height: 96px;
+  border-radius: var(--radius-xl);
+  border: 1px dashed var(--border-brand);
+  background: var(--card-bg-gradient);
+  box-shadow: var(--surface-highlight);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 1rem;
+  text-align: center;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.partner-slot:hover {
+  border-color: var(--memora-blue);
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   5.12 PERGUNTAS FREQUENTES (FAQ ACCORDION)
+   ========================================================================== */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.faq-item {
+  background: var(--card-bg-gradient);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--surface-highlight);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.faq-item.is-open {
+  border-color: var(--border-brand);
+  box-shadow: 0 14px 36px -14px rgba(0, 161, 224, 0.2), var(--surface-highlight-brand);
+}
+
+.faq-trigger {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.faq-item.is-open .faq-icon {
+  transform: rotate(45deg);
+  background: var(--memora-blue);
+  color: #FFFFFF;
+  border-color: var(--memora-blue);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s var(--ease-out-expo);
+}
+
+.faq-content__inner {
+  padding: 0 1.5rem 1.35rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   5.13 CTA FINAL ("LIFTOFF" CONTAINER ESTILO ANTIGRAVITY) & 5.14 RODAPÉ
+   ========================================================================== */
+.liftoff-cta {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 161, 224, 0.24) 0%, var(--bg-secondary) 70%);
+  border: 1px solid var(--border-brand);
+  border-radius: var(--radius-2xl);
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3.5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.site-footer {
+  padding-top: 4.5rem;
+  padding-bottom: 2rem;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.footer-col h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-col a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.footer-col a:hover {
+  color: var(--memora-blue);
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Wordmark Monumental de Ponta a Ponta (Assinatura Visual Google Antigravity) */
+.footer-monumental {
+  margin-top: 2.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(4.2rem, 17.5vw, 15.5rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.86;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0, 161, 224, 0.28) 0%, rgba(255, 255, 255, 0.02) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  user-select: none;
+  pointer-events: none;
+}

@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memora — Estude menos tempo perdido. Lembre mais do que estudou.</title>
+  <meta
+    name="description"
+    content="Plataforma de estudo ativo baseada em repetição espaçada (FSRS), geração de flashcards com IA, orientação com a assistente Nôa, comunidade de estudantes e recompensas com Neurônios."
+  />
+
+  <!-- Open Graph / SEO Básico (Seção 6) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Memora — Estudo ativo com repetição espaçada, IA e comunidade" />
+  <meta
+    property="og:description"
+    content="Retenha o que você estuda no longo prazo com o mínimo de atrito possível. Flashcards com FSRS, geração por IA, comunidade ativa e recompensas em Neurônios."
+  />
+  <meta property="og:image" content="./imgs/og-preview-placeholder.svg" />
+
+  <!-- Tipografia (Plus Jakarta Sans + Inter + JetBrains Mono — [A DEFINIR: Fonte Oficial]) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Arquitetura CSS Modular (Seção 6: separação estrita em pastas) -->
+  <link rel="stylesheet" href="./css/variables.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/components.css" />
+  <link rel="stylesheet" href="./css/sections.css" />
+  <link rel="stylesheet" href="./css/responsive.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- ========================================================================
+       5.1 NAVEGAÇÃO (HEADER STICKY GLASSMORPHISM)
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="#" class="brand-logo" aria-label="Memora — Início">
+        <span class="brand-logo__mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="7" cy="8" r="2.5" fill="currentColor" />
+            <circle cx="17" cy="7" r="2" fill="currentColor" />
+            <circle cx="12" cy="17" r="3" fill="currentColor" />
+            <path d="M7 8L17 7L12 17L7 8Z" />
+          </svg>
+        </span>
+        <span>Memora</span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
+        <a href="#problema" class="site-nav__link" aria-label="O Problema" data-tooltip="O Problema">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="site-nav__label">O Problema</span>
+        </a>
+        <a href="#como-funciona" class="site-nav__link" aria-label="Como Funciona" data-tooltip="Como Funciona">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+          <span class="site-nav__label">Como Funciona</span>
+        </a>
+        <a href="#funcionalidades" class="site-nav__link" aria-label="Funcionalidades" data-tooltip="Funcionalidades">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+          </svg>
+          <span class="site-nav__label">Funcionalidades</span>
+        </a>
+        <a href="#comunidade" class="site-nav__link" aria-label="Comunidade" data-tooltip="Comunidade">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          <span class="site-nav__label">Comunidade</span>
+        </a>
+        <a href="#para-quem" class="site-nav__link" aria-label="Para Quem É" data-tooltip="Para Quem É">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+          </svg>
+          <span class="site-nav__label">Para Quem É</span>
+        </a>
+        <a href="#planos" class="site-nav__link" aria-label="Planos" data-tooltip="Planos">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+          <span class="site-nav__label">Planos</span>
+        </a>
+        <a href="#seguranca" class="site-nav__link" aria-label="Segurança" data-tooltip="Segurança">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <span class="site-nav__label">Segurança</span>
+        </a>
+        <a href="#faq" class="site-nav__link" aria-label="Perguntas Frequentes (FAQ)" data-tooltip="FAQ">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01" />
+          </svg>
+          <span class="site-nav__label">FAQ</span>
+        </a>
+      </nav>
+
+      <div class="site-header__actions">
+        <!-- Toggle Dark / Light Mode (Seção 3.3) -->
+        <button
+          type="button"
+          id="theme-toggle-btn"
+          class="theme-toggle"
+          aria-label="Alternar entre tema escuro e claro na landing page"
+          title="Alternar tema da página (Mockups do app permanecem em #FAFAF7)"
+        >
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <button type="button" class="btn btn--primary btn--sm btn--header-cta btn--magnetic" data-open-waitlist>
+          <span>Lista de Espera</span>
+        </button>
+
+        <button
+          type="button"
+          class="mobile-menu-btn"
+          id="mobile-menu-btn"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ======================================================================
+         5.2 HERO SECTION
+         Objetivo: Comunicar em segundos o que é o Memora e para quem.
+         Inclui Canvas de Constelação Sináptica + Mockup Interativo #FAFAF7.
+         ====================================================================== -->
+    <section class="section hero-section bg-dot-matrix" id="hero">
+      <canvas id="synapse-canvas" aria-hidden="true"></canvas>
+      <div class="ambient-halo" style="width: 580px; height: 580px; top: -120px; left: 50%; transform: translateX(-50%);"></div>
+
+      <div class="container">
+        <div class="hero-content">
+
+          <h1 class="hero-title">
+            Estude menos tempo perdido.<br />
+            <span class="text-gradient-brand">Lembre mais do que estudou.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            O Memora é a plataforma para <strong>hospedar e organizar todos os seus conteúdos de estudo</strong> em comunidade. Conecte suas fontes com <strong>IA + integração MCP</strong> para transformar materiais em flashcards inteligentes (FSRS) e ganhe Neurônios pela sua consistência.
+          </p>
+
+          <div class="hero-ctas">
+            <button type="button" class="btn btn--primary btn--lg btn--magnetic" data-open-waitlist>
+              <span>Entrar na Lista de Espera</span>
+            </button>
+            <a href="#como-funciona" class="btn btn--ghost btn--lg">
+              <span>Ver como funciona</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero-meta-note">
+            <span>PWA Mobile-First para estudantes (18+): Universitários, Vestibulandos e Concurseiros</span>
+          </div>
+        </div>
+
+        <!-- Palco do Produto: Contraste intencional entre Landing Escura e App Claro (#FAFAF7) -->
+        <div class="hero-showcase">
+          <div class="app-stage-frame">
+            <div class="app-window" role="region" aria-label="Protótipo interativo do app Memora em tema claro #FAFAF7">
+              <div class="app-window__topbar">
+                <div class="app-window__dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="font-mono" style="font-size: 0.72rem;">
+                  memora.app — Tema Claro Oficial (#FAFAF7)
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.45rem; font-weight: 600; color: #11141A;">
+                  <img src="./imgs/neuronio-coin.svg" alt="" width="18" height="18" />
+                  <span><strong id="hero-neuron-count">140</strong> Neurônios</span>
+                </div>
+              </div>
+
+              <div class="app-window__body">
+                <div class="hero-mockup-grid">
+                  <!-- Coluna Esquerda: Card Interativo com Agendador FSRS -->
+                  <div class="fsrs-card-interactive">
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
+                      <span class="app-pill-blue">Deck: Neurociência da Aprendizagem</span>
+                      <span class="font-mono" style="font-size: 0.72rem; color: var(--app-text-muted);">Retenção alvo: 90% (FSRS)</span>
+                    </div>
+
+                    <div>
+                      <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--app-text-muted); margin-bottom: 0.35rem;">
+                        Pergunta do Flashcard (Experimente interagir)
+                      </p>
+                      <h2 class="fsrs-card-question">
+                        Por que revisar um conteúdo exatamente antes da curva do esquecimento reduz o tempo total de estudo?
+                      </h2>
+                    </div>
+
+                    <div id="fsrs-answer-box" class="fsrs-card-answer">
+                      Porque o esforço ativo de recuperação consolida o traço de memória sináptica. Com o agendador <strong>FSRS</strong>, você só revisa os cards que realmente correm risco de serem esquecidos.
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                      <button
+                        type="button"
+                        id="fsrs-reveal-btn"
+                        style="align-self: flex-start; font-size: 0.8rem; font-weight: 600; color: #007EB0; text-decoration: underline;"
+                      >
+                        Ver resposta do card
+                      </button>
+
+                      <div class="fsrs-rating-bar" role="group" aria-label="Avaliar dificuldade do card no FSRS">
+                        <button type="button" class="fsrs-rate-btn" data-difficulty="Difícil" data-interval="1 dia">
+                          <strong>Difícil</strong>
+                          <span>Rever em 1d</span>
+                        </button>
+                        <button type="button" class="fsrs-rate-btn is-selected" data-difficulty="Bom" data-interval="4 dias">
+                          <strong>Bom</strong>
+                          <span>Rever em 4d</span>
+                        </button>
+                        <button type="button" class="fsrs-rate-btn" data-difficulty="Fácil" data-interval="11 dias">
+                          <strong>Fácil</strong>
+                          <span>Rever em 11d</span>
+                        </button>
+                      </div>
+
+                      <p id="fsrs-schedule-feedback" style="font-size: 0.76rem; color: var(--app-text-secondary);">
+                        Agendador <strong>FSRS (90% retenção alvo)</strong>: toque em uma dificuldade acima para simular o reagendamento inteligente.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Coluna Direita: Sessão em 1 Toque + Sugestão da Nôa -->
+                  <div class="one-tap-session-card">
+                    <div class="app-card-light">
+                      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem;">
+                        <strong style="font-size: 0.92rem;">Sua rotina hoje • Sem fricção</strong>
+                        <span class="app-pill-blue">Janela de silêncio ativa</span>
+                      </div>
+                      <p style="font-size: 0.83rem; color: var(--app-text-secondary); margin-bottom: 0.9rem;">
+                        12 cards priorizados pelo FSRS para manter sua meta em dia sem sobrecarga.
+                      </p>
+                      <button type="button" id="one-tap-session-btn" class="one-tap-trigger">
+                        ▶ Iniciar sessão do dia em 1 toque (12 cards hoje)
+                      </button>
+                    </div>
+
+                    <div class="app-card-light" style="display: flex; gap: 0.85rem; align-items: flex-start;">
+                      <img src="./imgs/noa-avatar-placeholder.svg" alt="Avatar da assistente Nôa" width="42" height="42" style="flex-shrink: 0;" />
+                      <div>
+                        <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
+                          <strong style="font-size: 0.88rem;">Nôa, sua orientadora</strong>
+                          <span class="font-mono" style="font-size: 0.68rem; color: var(--app-text-muted);">Cota diária do plano</span>
+                        </div>
+                        <p style="font-size: 0.81rem; color: var(--app-text-secondary); margin-top: 0.25rem;">
+                          "Notei que você revisou Direito Constitucional ontem. Que tal explorar o deck comunitário de Controle de Constitucionalidade?"
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.3 SEÇÃO O PROBLEMA
+         Objetivo: Gerar identificação com a dor real do estudante adulto.
+         ====================================================================== -->
+    <section class="section" id="problema">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            O problema não é falta de esforço.<br />
+            É estudar contra o funcionamento da memória.
+          </h2>
+          <p class="section-subtitle">
+            Universitários, vestibulandos e concurseiros enfrentam o mesmo ciclo desgastante quando dependem apenas de releitura passiva ou ferramentas complexas.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="problem-card__title">Estudar muito e esquecer rápido</h3>
+            <p class="problem-card__desc">
+              Você passa horas lendo apostilas e grifando resumos, mas semanas depois percebe que boa parte do conteúdo desapareceu na hora da revisão ou da prova.
+            </p>
+          </article>
+
+          <article class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <h3 class="problem-card__title">Horas perdidas montando flashcards</h3>
+            <p class="problem-card__desc">
+              Criar cartões manualmente a partir de aulas e PDFs consome o tempo e a energia mental que você deveria usar para realmente estudar e praticar.
+            </p>
+          </article>
+
+          <article class="problem-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="problem-card__title">Estudo solitário e apps abandonados</h3>
+            <p class="problem-card__desc">
+              Interfaces complicadas, notificações invasivas que geram culpa e a ausência de uma comunidade fazem você abandonar o hábito nas primeiras semanas.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.4 COMO FUNCIONA
+         Objetivo: Mostrar a simplicidade do fluxo em 4 etapas + Sessão em 1 toque.
+         ====================================================================== -->
+    <section class="section bg-dot-matrix" id="como-funciona">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Do seu material de estudo à retenção de longo prazo em 4 passos.
+          </h2>
+          <p class="section-subtitle">
+            Projetado para caber na sua rotina pelo celular, com início da <strong>sessão do dia em 1 toque</strong>.
+          </p>
+        </div>
+
+        <div class="steps-timeline">
+          <!-- Passo 1 -->
+          <article class="step-card">
+            <div class="step-card__header">
+              <span class="step-card__node" aria-hidden="true">1</span>
+              <span class="step-card__num">Passo 1</span>
+            </div>
+            <h3 class="step-card__title">Hospede seus materiais ou conecte via MCP</h3>
+            <p class="step-card__desc">
+              Armazene apostilas, PDFs e resumos na sua biblioteca pessoal no Memora, conecte suas fontes via MCP ou clone acervos validados pela comunidade.
+            </p>
+          </article>
+
+          <!-- Passo 2 -->
+          <article class="step-card">
+            <div class="step-card__header">
+              <span class="step-card__node" aria-hidden="true">2</span>
+              <span class="step-card__num">Passo 2</span>
+            </div>
+            <h3 class="step-card__title">A IA + MCP transforma tudo em flashcards</h3>
+            <p class="step-card__desc">
+              Em segundo plano, a IA integrada via MCP lê o conteúdo hospedado, extrai os conceitos-chave e avisa assim que o deck estiver pronto.
+            </p>
+          </article>
+
+          <!-- Passo 3 -->
+          <article class="step-card">
+            <div class="step-card__header">
+              <span class="step-card__node" aria-hidden="true">3</span>
+              <span class="step-card__num">Passo 3</span>
+            </div>
+            <h3 class="step-card__title">Revise em 1 toque, na hora certa</h3>
+            <p class="step-card__desc">
+              Comece a sessão do dia em <strong>1 toque</strong>. O agendador <strong>FSRS (90% de retenção alvo)</strong> prioriza só o que você está prestes a esquecer.
+            </p>
+          </article>
+
+          <!-- Passo 4 -->
+          <article class="step-card">
+            <div class="step-card__header">
+              <span class="step-card__node" aria-hidden="true">4</span>
+              <span class="step-card__num">Passo 4</span>
+            </div>
+            <h3 class="step-card__title">Construa constância e ganhe Neurônios</h3>
+            <p class="step-card__desc">
+              Mantenha o ritmo sem notificações tóxicas, colabore com outros estudantes e troque seus Neurônios por cupons de parceiros.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.5 FUNCIONALIDADES (PILARES DO PRODUTO — DOCK INTERATIVO ESTILO ANTIGRAVITY)
+         ====================================================================== -->
+    <section class="section" id="funcionalidades">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Tudo o que você precisa para tornar o hábito de estudar sustentável.
+          </h2>
+          <p class="section-subtitle">
+            Navegue pelos pilares do Memora abaixo e veja como cada funcionalidade opera no app (em tema claro <code>#FAFAF7</code>).
+          </p>
+        </div>
+
+        <div class="suite-container">
+          <!-- Dock Interativo Estilo Google Antigravity -->
+          <div class="suite-dock-wrapper">
+            <div class="antigravity-dock" role="tablist" aria-label="Pilares do produto Memora">
+              <button
+                type="button"
+                class="dock-item is-active"
+                role="tab"
+                aria-selected="true"
+                data-suite-target="fsrs"
+              >
+                <span>1. Repetição Espaçada (FSRS)</span>
+              </button>
+              <button
+                type="button"
+                class="dock-item"
+                role="tab"
+                aria-selected="false"
+                data-suite-target="ia-decks"
+              >
+                <span>2. IA + MCP &amp; Biblioteca</span>
+              </button>
+              <button
+                type="button"
+                class="dock-item"
+                role="tab"
+                aria-selected="false"
+                data-suite-target="noa"
+              >
+                <span>3. Assistente Nôa</span>
+              </button>
+              <button
+                type="button"
+                class="dock-item"
+                role="tab"
+                aria-selected="false"
+                data-suite-target="habito"
+              >
+                <span>4. Metas &amp; Hábito</span>
+              </button>
+              <button
+                type="button"
+                class="dock-item"
+                role="tab"
+                aria-selected="false"
+                data-suite-target="neuronios"
+              >
+                <span>5. Neurônios &amp; Cupons</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Painel 1: Repetição Espaçada (FSRS) -->
+          <div class="suite-panel is-active" data-suite-panel="fsrs" role="tabpanel">
+            <div class="suite-panel__info">
+              <h3>Lembre mais estudando menos tempo perdido.</h3>
+              <p style="color: var(--text-secondary);">
+                Em vez de revisar todos os cartões todos os dias, o Memora utiliza um agendador moderno baseado em <strong>FSRS (Free Spaced Repetition Scheduler)</strong> calibrado para uma <strong>retenção alvo de 90%</strong>.
+              </p>
+              <ul class="suite-panel__list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Cada card é reagendado dinamicamente conforme a dificuldade informada por você.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Foco nos pontos cegos da sua memória, poupando horas em conteúdos já dominados.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="app-window">
+              <div class="app-window__topbar">
+                <div class="app-window__dots"><span></span><span></span><span></span></div>
+                <span>Agendador FSRS • Retenção Alvo 90%</span>
+              </div>
+              <div class="app-window__body">
+                <div class="app-card-light" style="display: flex; flex-direction: column; gap: 0.85rem;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong>Curva de Estabilidade do Deck</strong>
+                    <span class="app-pill-blue">Retenção estimada: 90%</span>
+                  </div>
+                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; text-align: center;">
+                    <div style="padding: 0.75rem; background: var(--app-surface-muted); border-radius: 10px;">
+                      <strong style="font-size: 1.1rem; color: #007EB0;">8 cards</strong>
+                      <p style="font-size: 0.72rem; color: var(--app-text-secondary);">Para revisar hoje</p>
+                    </div>
+                    <div style="padding: 0.75rem; background: var(--app-surface-muted); border-radius: 10px;">
+                      <strong style="font-size: 1.1rem;">42 cards</strong>
+                      <p style="font-size: 0.72rem; color: var(--app-text-secondary);">Consolidados</p>
+                    </div>
+                    <div style="padding: 0.75rem; background: var(--app-surface-muted); border-radius: 10px;">
+                      <strong style="font-size: 1.1rem;">1 toque</strong>
+                      <p style="font-size: 0.72rem; color: var(--app-text-secondary);">Para iniciar</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Painel 2: Geração de Decks com IA + Conexão MCP & Hospedagem de Conteúdos -->
+          <div class="suite-panel" data-suite-panel="ia-decks" role="tabpanel">
+            <div class="suite-panel__info">
+              <h3>Hospede seus conteúdos de estudo e transforme-os via IA + MCP.</h3>
+              <p style="color: var(--text-secondary);">
+                O Memora funciona como a sua central definitiva para <strong>armazenar e organizar todos os seus materiais de estudo</strong>. Com conexão <strong>MCP (Model Context Protocol)</strong> integrada à IA, seus documentos, notas e referências viram flashcards estruturados sem esforço manual.
+              </p>
+              <ul class="suite-panel__list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span><strong>Biblioteca centralizada na nuvem:</strong> hospede PDFs, apostilas, resumos e decks em um único repositório sempre acessível no celular ou computador.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span><strong>Transformação via MCP + IA assíncrona:</strong> conecte suas fontes e arquivos; a IA processa o contexto em segundo plano e notifica quando o deck estiver pronto.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span><strong>Pronto para compartilhar:</strong> mantenha seus materiais privados ou publique na biblioteca da comunidade para ajudar outros alunos e ganhar Neurônios.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="app-window">
+              <div class="app-window__topbar">
+                <div class="app-window__dots"><span></span><span></span><span></span></div>
+                <span>Biblioteca de Conteúdos • IA + Conexão MCP</span>
+              </div>
+              <div class="app-window__body">
+                <div class="app-card-light" style="display: flex; flex-direction: column; gap: 0.9rem;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                    <strong>Meu Repositório de Estudos</strong>
+                    <span class="app-pill-blue">● MCP Conectado &amp; Ativo</span>
+                  </div>
+
+                  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <div style="padding: 0.65rem 0.85rem; background: var(--app-surface-muted); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                      <div style="font-size: 0.8rem;">
+                        <strong>Apostila_Direito_Administrativo.pdf</strong>
+                        <span style="display: block; font-size: 0.72rem; color: var(--app-text-secondary);">Hospedado na sua biblioteca • Sincronizado via MCP</span>
+                      </div>
+                      <span class="app-pill-blue">36 cards gerados</span>
+                    </div>
+
+                    <div style="padding: 0.65rem 0.85rem; background: var(--app-surface-muted); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                      <div style="font-size: 0.8rem;">
+                        <strong>Resumo_Fisiologia_Humana.md</strong>
+                        <span style="display: block; font-size: 0.72rem; color: var(--app-text-secondary);">Transformação IA via MCP em segundo plano</span>
+                      </div>
+                      <span class="app-pill-blue">Processando...</span>
+                    </div>
+                  </div>
+
+                  <p style="font-size: 0.78rem; color: var(--app-text-secondary);">
+                    Todos os seus arquivos originais e flashcards ficam salvos e organizados por disciplina no seu acervo do Memora.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Painel 3: Nôa, a Assistente -->
+          <div class="suite-panel" data-suite-panel="noa" role="tabpanel">
+            <div class="suite-panel__info">
+              <h3>Conheça a Nôa: direção diária para o seu estudo.</h3>
+              <p style="color: var(--text-secondary);">
+                A Nôa não é um "chatbot genérico que promete fazer tudo". Ela é a orientadora de estudo do Memora, focada em manter seu ritmo claro e produtivo.
+              </p>
+              <ul class="suite-panel__list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Oferece sugestões diárias personalizadas do que priorizar na sua sessão.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Recomenda decks relevantes criados pela comunidade (com cota diária de uso por plano).</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="app-window">
+              <div class="app-window__topbar">
+                <div class="app-window__dots"><span></span><span></span><span></span></div>
+                <span>Nôa • Orientadora de Estudo</span>
+              </div>
+              <div class="app-window__body">
+                <div class="app-card-light" style="display: flex; gap: 1rem; align-items: flex-start;">
+                  <img src="./imgs/noa-avatar-placeholder.svg" alt="Nôa" width="48" height="48" />
+                  <div style="display: flex; flex-direction: column; gap: 0.55rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                      <strong>Sugestão da Nôa para hoje</strong>
+                      <span class="app-pill-blue">Orientação Diária</span>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--app-text-secondary);">
+                      "Você tem 9 cards de Bioquímica no ponto ideal de revisão. Depois disso, recomendo clonar o deck em destaque da comunidade sobre Ciclo de Krebs."
+                    </p>
+                    <span class="font-mono" style="font-size: 0.72rem; color: var(--app-text-muted);">
+                      Cota diária da Nôa: vinculada ao seu plano [A DEFINIR]
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Painel 4: Metas e Hábito -->
+          <div class="suite-panel" data-suite-panel="habito" role="tabpanel">
+            <div class="suite-panel__info">
+              <h3>Construa constância real, respeitando o seu descanso.</h3>
+              <p style="color: var(--text-secondary);">
+                Sabemos que notificações agressivas geram ansiedade e abandono. O Memora foi desenhado para tornar o estudo leve e diário.
+              </p>
+              <ul class="suite-panel__list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span><strong>Sessão do dia em 1 toque:</strong> abra o app e comece imediatamente, sem menus complexos.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span><strong>Política anti-fadiga:</strong> notificações inteligentes com janela de silêncio configurada e zero spam.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="app-window">
+              <div class="app-window__topbar">
+                <div class="app-window__dots"><span></span><span></span><span></span></div>
+                <span>Metas &amp; Bem-Estar Digital</span>
+              </div>
+              <div class="app-window__body">
+                <div class="app-card-light" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <strong>Meta Diária sem Atrito</strong>
+                    <span class="app-pill-blue">Anti-fadiga Ativo</span>
+                  </div>
+                  <p style="font-size: 0.84rem; color: var(--app-text-secondary);">
+                    Janela de silêncio respeitada (22h às 08h). Sem alertas de cobrança ou spam.
+                  </p>
+                  <div style="padding: 0.75rem; background: var(--app-surface-muted); border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.82rem; font-weight: 600;">Iniciar revisão rápida de hoje</span>
+                    <span class="app-pill-blue">1 Toque &rarr;</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Painel 5: Neurônios e Cupons -->
+          <div class="suite-panel" data-suite-panel="neuronios" role="tabpanel">
+            <div class="suite-panel__info">
+              <h3>Sua consistência gera Neurônios e benefícios reais.</h3>
+              <p style="color: var(--text-secondary);">
+                Os <strong>Neurônios</strong> são a moeda virtual do Memora: uma mecânica de incentivo para recompensar sua dedicação e colaboração na comunidade.
+              </p>
+              <ul class="suite-panel__list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Ganhe Neurônios com acesso diário, metas batidas, indicações e quando outros alunos clonam seus decks.</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                  <span>Troque seus Neurônios por cupons de desconto em estabelecimentos parceiros (não possui valor monetário nem funciona como dinheiro real).</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="app-window">
+              <div class="app-window__topbar">
+                <div class="app-window__dots"><span></span><span></span><span></span></div>
+                <span>Carteira de Neurônios</span>
+              </div>
+              <div class="app-window__body">
+                <div class="app-card-light" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                      <img src="./imgs/neuronio-coin.svg" alt="Moeda Neurônios" width="26" height="26" />
+                      <strong>Saldo de Neurônios</strong>
+                    </div>
+                    <span class="app-pill-blue">Recompensa por Hábito</span>
+                  </div>
+                  <p style="font-size: 0.82rem; color: var(--app-text-secondary);">
+                    Acumule estudando todos os dias ou compartilhando decks úteis e resgate cupons na vitrine de parceiros.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.6 COMUNIDADE (SEÇÃO DE DESTAQUE — PRINCIPAL DIFERENCIAL ESTRATÉGICO)
+         Objetivo: Destacar o efeito de rede, biblioteca colaborativa e separar Disponível vs. Em Breve.
+         ====================================================================== -->
+    <section class="section bg-dot-matrix" id="comunidade">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Estudar deixa de ser solitário quando você hospeda e aprende em comunidade.
+          </h2>
+          <p class="section-subtitle">
+            Muito além de um app de flashcards: o Memora é uma rede viva onde estudantes hospedam seus melhores conteúdos de estudo, clonam bibliotecas inteiras e evoluem juntos.
+          </p>
+        </div>
+
+        <div class="community-highlight-box">
+          <div class="community-grid">
+            <!-- Coluna 1: O que já faz parte do Protótipo (Feed, Biblioteca Hospedada, Ranking, Clonagem, Reações) -->
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+                <span class="status-chip status-chip--live">● Ecossistema Colaborativo Ativo</span>
+                <span class="font-mono" style="font-size: 0.75rem; color: var(--text-secondary);">Repositório Comunitário &amp; Efeito de Rede</span>
+              </div>
+
+              <h3 style="font-size: var(--text-h3);">
+                Hospede seus conteúdos, descubra acervos validados e clone decks em 1 clique.
+              </h3>
+
+              <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                Publique seus resumos, materiais transformados via MCP e decks para ajudar outros universitários, vestibulandos e concurseiros. Sempre que alguém clonar um conteúdo hospedado por você, sua conta recebe <strong>Neurônios</strong> automaticamente.
+              </p>
+
+              <!-- Vitrine Clara #FAFAF7 da Biblioteca Comunitária com Reações Interativas -->
+              <div class="app-window">
+                <div class="app-window__topbar">
+                  <div class="app-window__dots"><span></span><span></span><span></span></div>
+                  <span>Hub da Comunidade • Acervos &amp; Decks Hospedados</span>
+                </div>
+                <div class="app-window__body">
+                  <div class="app-card-light" style="display: flex; flex-direction: column; gap: 0.85rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 0.75rem; flex-wrap: wrap;">
+                      <div>
+                        <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
+                          <span class="app-pill-blue">Top Acervo da Semana • Concursos &amp; OAB</span>
+                          <span class="font-mono" style="font-size: 0.68rem; color: var(--app-text-muted);">Material + Deck MCP</span>
+                        </div>
+                        <h4 style="margin-top: 0.45rem; font-size: 1rem;">Direito Constitucional: Art. 5º e Remédios Constitucionais</h4>
+                        <p style="font-size: 0.8rem; color: var(--app-text-secondary); margin-top: 0.2rem;">
+                          Apostila resumida hospedada + 48 flashcards FSRS • <strong>312 clones na comunidade</strong>
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        style="padding: 0.48rem 0.9rem; border-radius: 9999px; background: var(--memora-blue); color: #fff; font-size: 0.76rem; font-weight: 600;"
+                        data-open-waitlist
+                      >
+                        Clonar Acervo
+                      </button>
+                    </div>
+
+                    <div style="padding: 0.6rem 0.8rem; background: var(--app-surface-muted); border-radius: 10px; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; font-size: 0.76rem;">
+                      <span>📚 <strong>+12 cadernos e PDFs base</strong> anexados pelo autor no repositório</span>
+                      <span style="color: #007EB0; font-weight: 600;">+5 Neurônios por clone</span>
+                    </div>
+
+                    <div>
+                      <p style="font-size: 0.74rem; color: var(--app-text-muted); margin-bottom: 0.45rem;">
+                        Reações pré-definidas para celebrar quem compartilha conhecimento (clique para testar):
+                      </p>
+                      <div class="reaction-bar" role="group" aria-label="Reações pré-definidas da comunidade">
+                        <button type="button" class="reaction-pill is-reacted" aria-label="Reagir com palmas">
+                          <span>👏</span><span class="reaction-count">12</span>
+                        </button>
+                        <button type="button" class="reaction-pill" aria-label="Reagir com fogo">
+                          <span>🔥</span><span class="reaction-count">8</span>
+                        </button>
+                        <button type="button" class="reaction-pill" aria-label="Reagir com cérebro">
+                          <span>🧠</span><span class="reaction-count">19</span>
+                        </button>
+                        <button type="button" class="reaction-pill" aria-label="Reagir com lâmpada">
+                          <span>💡</span><span class="reaction-count">6</span>
+                        </button>
+                        <button type="button" class="reaction-pill" aria-label="Reagir com coração">
+                          <span>❤️</span><span class="reaction-count">14</span>
+                        </button>
+                        <button type="button" class="reaction-pill" aria-label="Reagir com risada">
+                          <span>😂</span><span class="reaction-count">3</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna 2: Visão de Roadmap (Claramente sinalizada como EM BREVE — Regra 4 da Seção 7) -->
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+              <div class="roadmap-card">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap;">
+                  <span class="status-chip status-chip--roadmap">⏳ Em Breve • Visão de Roadmap</span>
+                  <span class="font-mono" style="font-size: 0.72rem; color: var(--text-muted);">Próximas etapas</span>
+                </div>
+
+                <h3 style="font-size: 1.25rem;">
+                  Eventos ao vivo e conexões além dos flashcards
+                </h3>
+
+                <p style="font-size: 0.92rem; color: var(--text-secondary);">
+                  Nossa visão de futuro para a comunidade do Memora expande o networking estudantil com experiências síncronas planejadas no roadmap:
+                </p>
+
+                <ul class="suite-panel__list">
+                  <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                    <span><strong>Sessões de estudo em grupo ao vivo</strong> <span class="status-chip status-chip--roadmap" style="font-size: 0.62rem; padding: 0.1rem 0.45rem;">Em breve</span></span>
+                  </li>
+                  <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                    <span><strong>Hackathons e desafios acadêmicos</strong> <span class="status-chip status-chip--roadmap" style="font-size: 0.62rem; padding: 0.1rem 0.45rem;">Em breve</span></span>
+                  </li>
+                  <li>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                    <span><strong>Palestras e encontros temáticos</strong> <span class="status-chip status-chip--roadmap" style="font-size: 0.62rem; padding: 0.1rem 0.45rem;">Em breve</span></span>
+                  </li>
+                </ul>
+
+                <p style="font-size: 0.78rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); padding-top: 0.75rem;">
+                  Nota de transparência: eventos ao vivo são visão de roadmap e ainda não fazem parte da versão de validação atual.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.7 PARA QUEM É (SEGMENTAÇÃO POR PERFIL ADULTO 18+)
+         ====================================================================== -->
+    <section class="section" id="para-quem">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Para quem precisa dominar grandes volumes de conteúdo sem perder o ritmo.
+          </h2>
+          <p class="section-subtitle">
+            Seja na graduação, na preparação para o vestibular ou em editais extensos de concurso.
+          </p>
+        </div>
+
+        <div class="audience-grid">
+          <!-- Perfil A: Universitários -->
+          <article class="audience-card">
+            <h3 style="font-size: 1.4rem;">Universitários</h3>
+            <div class="audience-block">
+              <strong style="display: block; font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem;">A dor</strong>
+              <p style="color: var(--text-secondary);">
+                Acúmulo de matérias complexas, provas concentradas no fim do período e o estudo de última hora que não fixa.
+              </p>
+            </div>
+            <div class="audience-block audience-block--benefit">
+              <strong style="display: block; font-size: 0.78rem; text-transform: uppercase; color: var(--memora-blue); margin-bottom: 0.3rem;">Como o Memora ajuda</strong>
+              <p style="color: var(--text-primary);">
+                Método eficiente para reter o conteúdo ao longo de todo o semestre, transformando textos e PDFs em flashcards com IA sem gastar horas montando material.
+              </p>
+            </div>
+          </article>
+
+          <!-- Perfil B: Vestibulandos -->
+          <article class="audience-card">
+            <h3 style="font-size: 1.4rem;">Vestibulandos</h3>
+            <div class="audience-block">
+              <strong style="display: block; font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem;">A dor</strong>
+              <p style="color: var(--text-secondary);">
+                Volume imenso de disciplinas diferentes, ansiedade constante e dificuldade de manter o hábito todos os dias.
+              </p>
+            </div>
+            <div class="audience-block audience-block--benefit">
+              <strong style="display: block; font-size: 0.78rem; text-transform: uppercase; color: var(--memora-blue); margin-bottom: 0.3rem;">Como o Memora ajuda</strong>
+              <p style="color: var(--text-primary);">
+                Rotina diária leve iniciada em 1 toque, que mantém os conteúdos de todas as matérias "vivos" na memória até o dia da prova, sem cobrança tóxica.
+              </p>
+            </div>
+          </article>
+
+          <!-- Perfil C: Concurseiros -->
+          <article class="audience-card">
+            <h3 style="font-size: 1.4rem;">Concurseiros</h3>
+            <div class="audience-block">
+              <strong style="display: block; font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.3rem;">A dor</strong>
+              <p style="color: var(--text-secondary);">
+                Editais extensos, projetos de estudo longos e solitários e o risco constante de esquecer o que estudou meses atrás.
+              </p>
+            </div>
+            <div class="audience-block audience-block--benefit">
+              <strong style="display: block; font-size: 0.78rem; text-transform: uppercase; color: var(--memora-blue); margin-bottom: 0.3rem;">Como o Memora ajuda</strong>
+              <p style="color: var(--text-primary);">
+                Revisão sistemática com FSRS (90% de retenção alvo), constância de longo prazo e uma comunidade ativa compartilhando decks da sua área.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.8 PROVA E DADOS DE MERCADO
+         Regra 5.8 e 7: Proibido inventar estatísticas. Usar placeholders sinalizados.
+         ====================================================================== -->
+    <section class="section bg-dot-matrix" id="dados">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Construído a partir da realidade de quem estuda no Brasil.
+          </h2>
+          <p class="section-subtitle">
+            Transparência total: não inventamos números nem depoimentos. Os indicadores abaixo aguardam inserção final dos dados tabulados.
+          </p>
+        </div>
+
+        <div class="data-proof-grid">
+          <!-- Bloco 1: Pesquisa de Experiência de Aprendizado do Memora (73 respostas) -->
+          <div class="tbd-box">
+            <h3 style="font-size: 1.3rem;">
+              Pesquisa de Experiência de Aprendizado
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.45rem;">
+              Levantamento conduzido pela equipe do Memora com <strong>73 estudantes</strong> sobre dificuldades de retenção, criação manual de materiais e constância nos estudos.
+            </p>
+
+            <div class="metric-placeholder-grid">
+              <div class="metric-slot">
+                <span class="metric-slot__value">[A DEFINIR %]</span>
+                <span style="font-size: 0.82rem; color: var(--text-secondary);">Indicador 1 da pesquisa (ex.: relato de esquecimento rápido pós-prova)</span>
+              </div>
+              <div class="metric-slot">
+                <span class="metric-slot__value">[A DEFINIR %]</span>
+                <span style="font-size: 0.82rem; color: var(--text-secondary);">Indicador 2 da pesquisa (ex.: dificuldade de manter constância em apps)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloco 2: Dados Públicos de Mercado sobre Repetição Espaçada -->
+          <div class="tbd-box">
+            <h3 style="font-size: 1.3rem;">
+              Repetição Espaçada &amp; Retenção Ativa
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 0.45rem;">
+              Espaço reservado para dados públicos auditados e referências bibliográficas sobre eficácia da repetição espaçada (FSRS) e taxas de abandono em aplicativos tradicionais.
+            </p>
+
+            <div class="metric-placeholder-grid">
+              <div class="metric-slot">
+                <span class="metric-slot__value">[A DEFINIR]</span>
+                <span style="font-size: 0.82rem; color: var(--text-secondary);">Dado público sobre retenção com repetição espaçada + citação da fonte</span>
+              </div>
+              <div class="metric-slot">
+                <span class="metric-slot__value">[A DEFINIR]</span>
+                <span style="font-size: 0.82rem; color: var(--text-secondary);">Dado público sobre abandono de rotinas de estudo + citação da fonte</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.9 PLANOS E PREÇOS (MODELO FREEMIUM)
+         Regra 5.9: Modelo Freemium confirmado; preços, nomes finais e limites [A DEFINIR].
+         ====================================================================== -->
+    <section class="section" id="planos">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Comece gratuitamente. Evolua quando precisar de mais capacidade.
+          </h2>
+          <p class="section-subtitle">
+            O Memora opera no modelo freemium. Os nomes definitivos dos planos, valores de assinatura e cotas diárias exatas estão em definição final.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Plano Gratuito -->
+          <article class="pricing-card">
+            <div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Plano Gratuito</h3>
+              <div class="pricing-price">
+                <span>R$ 0</span>
+                <span style="font-size: 0.95rem; font-weight: 400; color: var(--text-secondary);">/ para começar</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.35rem;">
+                Ideal para criar o hábito diário com repetição espaçada e participar da comunidade.
+              </p>
+            </div>
+
+            <ul class="pricing-features">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Estudo ativo com agendador <strong>FSRS (90% de retenção alvo)</strong> e sessão em 1 toque</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Acesso à comunidade, ranking, clonagem de decks e acúmulo de <strong>Neurônios</strong></span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Geração de decks com IA: cota diária e limite de arquivo</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Sugestões diárias da assistente <strong>Nôa</strong>: cota básica</span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn--ghost" style="width: 100%;" data-open-waitlist>
+              <span>Entrar na Lista de Espera</span>
+            </button>
+          </article>
+
+          <!-- Plano Premium por Assinatura -->
+          <article class="pricing-card pricing-card--featured">
+            <div>
+              <h3 style="font-size: 1.2rem; color: var(--memora-blue); margin-bottom: 0.5rem;">Assinatura Premium</h3>
+              <div class="pricing-price">
+                <span>R$ [A DEFINIR]</span>
+                <span style="font-size: 0.95rem; font-weight: 400; color: var(--text-secondary);">/ mês</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.35rem;">
+                Para estudantes com rotinas intensas que precisam de cotas ampliadas de geração por IA e orientação da Nôa.
+              </p>
+            </div>
+
+            <ul class="pricing-features">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Tudo do plano gratuito com repetição espaçada FSRS e comunidade</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Cota diária ampliada para geração assíncrona de decks com IA</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Limite expandido de tamanho de material por envio</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>Cota diária ampliada de interações e recomendações com a <strong>Nôa</strong></span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn--primary" style="width: 100%;" data-open-waitlist>
+              <span>Quero Acesso Antecipado</span>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.10 SEGURANÇA E CONFIANÇA (+ BLOCO PARA ESCOLAS E RESPONSÁVEIS)
+         ====================================================================== -->
+    <section class="section bg-dot-matrix" id="seguranca">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Um ambiente de estudo saudável, moderado e confiável.
+          </h2>
+          <p class="section-subtitle">
+            Arquitetura pensada desde o primeiro dia para proteger a comunidade contra toxicidade e garantir tranquilidade para estudantes, famílias e instituições.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3 style="font-size: 1.08rem;">Proteção de menores por design</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              Embora nosso foco atual seja o público adulto (18+), a plataforma conta com suporte nativo a menores mediante aprovação parental para ações sensíveis.
+            </p>
+          </article>
+
+          <article class="trust-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 style="font-size: 1.08rem;">Moderação com contestação</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              Decks e conteúdos compartilhados na comunidade passam por regras claras de moderação, com fluxo transparente de revisão e direito a contestação.
+            </p>
+          </article>
+
+          <article class="trust-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 style="font-size: 1.08rem;">Interações livres de toxicidade</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              A comunidade utiliza reações pré-definidas (👏 🔥 🧠 💡 ❤️ 😂) para celebrar materiais úteis, evitando caixas de comentários hostis.
+            </p>
+          </article>
+
+          <article class="trust-card">
+            <div class="problem-card__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+              </svg>
+            </div>
+            <h3 style="font-size: 1.08rem;">Notificações sem spam</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+              Política anti-fadiga com janela de silêncio respeitada rigorosamente. Lembretes gentis para manter o hábito sem gerar ansiedade.
+            </p>
+          </article>
+        </div>
+
+        <!-- Bloco Secundário: Para Escolas, Responsáveis e Ecossistema B2B (Seção 1.2 e 5.10) -->
+        <div class="b2b-banner">
+          <div style="max-width: 680px;">
+            <h3 style="font-size: 1.28rem; margin-bottom: 0.55rem;">
+              Painel Parental e Painel B2B para Instituições de Ensino
+            </h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;">
+              Além do app do aluno, a arquitetura do Memora contempla painéis dedicados para responsáveis (acompanhamento e aprovação de segurança) e para instituições de ensino no modelo B2B2C.
+            </p>
+          </div>
+          <button type="button" class="btn btn--ghost" data-open-waitlist>
+            <span>Falar sobre parcerias institucionais</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.11 PARCEIROS E CUPONS (CICLO DE RECOMPENSAS)
+         Regra 5.11: Não inventar marcas. Lista de parceiros reais [A DEFINIR].
+         ====================================================================== -->
+    <section class="section" id="parceiros">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            Estude com constância. Ganhe Neurônios. Resgate benefícios.
+          </h2>
+          <p class="section-subtitle">
+            Transformamos a sua disciplina de estudo em benefícios em estabelecimentos parceiros, através de um painel exclusivo do parceiro.
+          </p>
+        </div>
+
+        <div class="partners-cycle">
+          <div class="problem-card">
+            <div class="step-card__header">
+              <span class="step-card__node" aria-hidden="true">1</span>
+              <span class="step-card__num">Etapa 1</span>
+            </div>
+            <h3 style="font-size: 1.15rem;">Mantenha o hábito ativo</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
+              Acesse diariamente, bata suas metas de revisão e compartilhe decks que ajudem outros estudantes.
+            </p>
+          </div>
+          <div class="problem-card">
+            <div class="step-card__header">
+              <span class="step-card__node" aria-hidden="true">2</span>
+              <span class="step-card__num">Etapa 2</span>
+            </div>
+            <h3 style="font-size: 1.15rem;">Acumule Neurônios</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
+              Receba Neurônios automaticamente pela sua consistência, por indicações e quando seus decks são clonados na comunidade.
+            </p>
+          </div>
+          <div class="problem-card">
+            <div class="step-card__header">
+              <span class="step-card__node" aria-hidden="true">3</span>
+              <span class="step-card__num">Etapa 3</span>
+            </div>
+            <h3 style="font-size: 1.15rem;">Resgate cupons exclusivos</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
+              Utilize seu saldo de Neurônios para desbloquear cupons de estabelecimentos parceiros diretamente pelo app.
+            </p>
+          </div>
+        </div>
+
+        <div class="partner-slots-grid" role="list" aria-label="Espaço reservado para marcas parceiras">
+          <div class="partner-slot" role="listitem">
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Logo de marca parceira</span>
+          </div>
+          <div class="partner-slot" role="listitem">
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Logo de marca parceira</span>
+          </div>
+          <div class="partner-slot" role="listitem">
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Logo de marca parceira</span>
+          </div>
+          <div class="partner-slot" role="listitem">
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Painel do Parceiro Memora</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.12 PERGUNTAS FREQUENTES (FAQ)
+         Respostas refletem estritamente o que está definido no documento.
+         ====================================================================== -->
+    <section class="section bg-dot-matrix" id="faq">
+      <div class="container container--narrow">
+        <div class="section-header">
+          <h2 class="section-title">Perguntas Frequentes</h2>
+          <p class="section-subtitle">
+            Respostas diretas e transparentes sobre o funcionamento do Memora e nosso estágio atual.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item is-open">
+            <button type="button" class="faq-trigger" aria-expanded="true">
+              <span>O que é repetição espaçada e por que o Memora usa FSRS?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-content__inner">
+                Repetição espaçada é uma técnica de estudo ativo em que você revisa cada conceito próximo ao momento em que começaria a esquecê-lo. O Memora utiliza um agendador baseado em <strong>FSRS (Free Spaced Repetition Scheduler)</strong> com <strong>retenção alvo de 90%</strong>: a cada card revisado, você informa a dificuldade e o algoritmo calcula o intervalo ideal da próxima revisão, economizando tempo de estudo.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>O Memora é gratuito? Como funcionam os planos?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-content__inner">
+                Sim, o Memora segue o modelo <strong>freemium</strong>: contará com um plano gratuito funcional (com limites diários de uso em recursos como geração por IA e assistente Nôa) e um plano premium por assinatura. Os preços exatos, nomes finais dos planos e limites detalhados estão marcados como <span class="tbd-badge">[A DEFINIR]</span> nesta fase de validação.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Como funcionam a conexão MCP com IA, a hospedagem de conteúdos e a Nôa?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-content__inner">
+                O Memora funciona como um <strong>hub completo para hospedar seus conteúdos de estudo</strong> (apostilas, PDFs, resumos e decks). Através da <strong>conexão MCP integrada à IA</strong>, seus materiais armazenados são lidos e transformados em flashcards de forma <strong>assíncrona</strong>, avisando você assim que estiverem prontos. Já a <strong>Nôa</strong> atua como sua orientadora diária, indicando quais revisões priorizar e quais acervos da comunidade clonar.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>O que são os Neurônios? Eles valem dinheiro real?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-content__inner">
+                Os <strong>Neurônios</strong> são a moeda virtual de incentivo à consistência dentro do Memora. Você ganha Neurônios com acesso diário, metas batidas, indicações e quando outros estudantes clonam os seus decks. Eles são usados exclusivamente para resgatar cupons de estabelecimentos parceiros dentro da plataforma e <strong>não possuem valor monetário nem funcionam como dinheiro real</strong>.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Funciona no celular? Preciso baixar em alguma loja de aplicativos?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-content__inner">
+                Sim! O aplicativo do aluno foi projetado como um <strong>PWA mobile-first</strong> para funcionar com excelência direto no navegador do seu celular. O Memora encontra-se atualmente em fase de <strong>protótipo navegável e validação</strong>, ainda sem lançamento comercial em lojas de aplicativos.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Menores de idade podem utilizar a plataforma?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-content">
+              <div class="faq-content__inner">
+                Embora a nossa comunicação e validação atual tenham foco em estudantes adultos (18+), o Memora possui <strong>proteção de menores por design</strong>, exigindo aprovação do responsável no Painel Parental para ações sensíveis, além de contar com moderação de conteúdo e reações pré-definidas contra toxicidade.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5.13 CTA FINAL ("LIFTOFF" CONTAINER ESTILO GOOGLE ANTIGRAVITY)
+         ====================================================================== -->
+    <section class="section" id="cta-final">
+      <div class="container">
+        <div class="liftoff-cta">
+
+          <h2 class="section-title" style="max-width: 22ch; margin-inline: auto; margin-bottom: 1rem;">
+            Pronto para lembrar no longo prazo o que você estuda hoje?
+          </h2>
+
+          <p class="section-subtitle" style="margin-inline: auto; margin-bottom: 2.25rem;">
+            Participe da fase de validação do Memora e seja um dos primeiros a experimentar nossa plataforma de repetição espaçada, IA e comunidade.
+          </p>
+
+          <div class="hero-ctas" style="margin-bottom: 0;">
+            <button type="button" class="btn btn--primary btn--lg btn--magnetic" data-open-waitlist>
+              <span>Entrar na Lista de Espera</span>
+            </button>
+            <a href="#funcionalidades" class="btn btn--ghost btn--lg">
+              Rever Funcionalidades
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       5.14 RODAPÉ + MONUMENTAL WORDMARK (INSPIRAÇÃO GOOGLE ANTIGRAVITY)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="brand-logo" style="margin-bottom: 0.85rem;">
+            <span class="brand-logo__mark" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="7" cy="8" r="2.5" fill="currentColor" />
+                <circle cx="17" cy="7" r="2" fill="currentColor" />
+                <circle cx="12" cy="17" r="3" fill="currentColor" />
+                <path d="M7 8L17 7L12 17L7 8Z" />
+              </svg>
+            </span>
+            <span>Memora</span>
+          </a>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); max-width: 34ch; margin-bottom: 1rem;">
+            Plataforma de estudo ativo baseada em repetição espaçada (FSRS), geração de decks com IA, comunidade e recompensas.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#problema">O Problema</a></li>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#comunidade">Comunidade</a></li>
+            <li><a href="#para-quem">Para Quem É</a></li>
+            <li><a href="#planos">Planos e Preços</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Institucional &amp; Legal</h4>
+          <ul>
+            <li><a href="#seguranca">Segurança e Proteção</a></li>
+            <li><a href="#parceiros">Parceiros e Cupons</a></li>
+            <li>
+              <a href="#cta-final">Política de Privacidade</a>
+            </li>
+            <li>
+              <a href="#cta-final">Termos de Uso</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato &amp; Redes</h4>
+          <ul>
+            <li>
+              <a href="#cta-final">E-mail de Contato</a>
+            </li>
+            <li>
+              <a href="#cta-final">Instagram / LinkedIn</a>
+            </li>
+            <li>
+              <a href="#seguranca">Para Escolas e Parceiros</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Memora. Todos os direitos reservados. Produto em fase de validação.</p>
+        <p class="font-mono" style="font-size: 0.75rem;">
+          Identidade Visual: <code>#00A1E0</code> • App Light UI: <code>#FAFAF7</code>
+        </p>
+      </div>
+
+      <!-- Assinatura Monumental estilo Google Antigravity Footer -->
+      <div class="footer-monumental" aria-hidden="true">MEMORA</div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODAL INTERATIVO DO CTA PRINCIPAL ([A DEFINIR: Destino do CTA])
+       ======================================================================== -->
+  <div
+    class="modal-backdrop"
+    id="waitlist-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="waitlist-modal-title"
+  >
+    <div class="modal-dialog">
+      <button type="button" class="modal-close" id="close-waitlist-modal" aria-label="Fechar janela">
+        &times;
+      </button>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
+        <span class="status-chip status-chip--live">Validação &amp; Acesso Antecipado</span>
+      </div>
+
+      <h3 id="waitlist-modal-title" style="font-size: 1.4rem;">
+        Entre na Lista de Espera do Memora
+      </h3>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.4rem;">
+        Garanta seu acesso prioritário à comunidade, biblioteca de estudos com conexão MCP via IA e repetição espaçada FSRS.
+      </p>
+
+      <form class="waitlist-form" id="waitlist-form">
+        <div>
+          <label for="waitlist-name" style="display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Seu nome</label>
+          <input type="text" id="waitlist-name" name="name" autocomplete="name" class="form-input" placeholder="Ex.: Ana Clara" required />
+        </div>
+        <div>
+          <label for="waitlist-email" style="display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Seu melhor e-mail</label>
+          <input type="email" id="waitlist-email" name="email" autocomplete="email" class="form-input" placeholder="voce@exemplo.com.br" required />
+        </div>
+        <div>
+          <label for="waitlist-profile" style="display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.3rem;">Qual é o seu perfil principal de estudo?</label>
+          <select id="waitlist-profile" name="profile" class="form-select" required>
+            <option value="">Selecione seu perfil...</option>
+            <option value="universitario">Universitário (18+)</option>
+            <option value="vestibulando">Vestibulando / ENEM (18+)</option>
+            <option value="concurseiro">Concurseiro (18+)</option>
+            <option value="escola-parceiro">Escola / Instituição ou Parceiro de Cupons</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn--primary" style="width: 100%; margin-top: 0.35rem;">
+          Garantir vaga na lista de espera
+        </button>
+
+        <p
+          id="waitlist-feedback"
+          role="status"
+          aria-live="polite"
+          style="display: none; font-size: 0.84rem; color: var(--memora-blue); text-align: center; padding-top: 0.4rem;"
+        >
+          ✓ Seu interesse foi registrado! Avisaremos você por e-mail nas próximas aberturas de acesso.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bibliotecas de Motion Design & 3D (Three.js + GSAP + ScrollTrigger + Lenis Smooth Scroll) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+
+  <!-- Arquitetura JS Modular ES6 -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,577 @@
+/* ==========================================================================
+   MEMORA — REUSABLE UI COMPONENTS (INSPIRAÇÃO GOOGLE ANTIGRAVITY)
+   ========================================================================== */
+
+/* 1. Barra Superior de Anúncio (Estilo Antigravity Ribbon) */
+.announcement-bar {
+  position: relative;
+  z-index: 101;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.55rem 1rem;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.announcement-bar__inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.announcement-bar__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--memora-blue);
+  box-shadow: 0 0 10px var(--memora-blue);
+  display: inline-block;
+}
+
+.announcement-bar__link {
+  color: var(--memora-blue);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.announcement-bar__link:hover {
+  text-decoration: underline;
+}
+
+/* 2. Header Glassmorphism Sticky */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background: var(--bg-glass);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.55), inset 0 -1px 0 0 rgba(255, 255, 255, 0.04);
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.site-header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+
+.brand-logo__mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--memora-blue-soft);
+  border: 1px solid var(--border-brand);
+  display: grid;
+  place-items: center;
+  color: var(--memora-blue);
+  position: relative;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--surface-highlight), 0 8px 24px -10px rgba(0, 0, 0, 0.5);
+  padding: 0.3rem;
+  border-radius: var(--radius-pill);
+}
+
+[data-theme="light"] .site-nav {
+  background: var(--btn-secondary-bg);
+  box-shadow: var(--surface-highlight);
+}
+
+.site-nav__link {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  transition: color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.site-nav__label {
+  display: none;
+}
+
+.site-nav__link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  z-index: 120;
+}
+
+.site-nav__link:hover,
+.site-nav__link:focus-visible,
+.site-nav__link.is-active {
+  color: var(--memora-blue);
+  background: var(--memora-blue-soft);
+}
+
+.site-nav__link:hover::after,
+.site-nav__link:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Botão Toggle Dark / Light Mode */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  background: var(--btn-secondary-bg);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  color: var(--memora-blue);
+  border-color: var(--border-brand);
+  transform: scale(1.04);
+}
+
+.theme-toggle .icon-sun {
+  display: block;
+}
+
+.theme-toggle .icon-moon {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-moon {
+  display: block;
+}
+
+/* Botão Menu Mobile */
+.mobile-menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  background: var(--btn-secondary-bg);
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+/* 3. Sistema de Botões Pill (Geometria 9999px estilo Antigravity) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.78rem 1.45rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-1px) scale(1.015);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn--primary {
+  background: linear-gradient(180deg, #14B2F0 0%, #008BC4 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(125, 211, 252, 0.35);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 28px -6px var(--memora-blue-glow), inset 0 1px 0 0 rgba(255, 255, 255, 0.28);
+}
+
+.btn--primary:hover {
+  background: linear-gradient(180deg, #22BDF8 0%, #0098D4 100%);
+  border-color: rgba(186, 230, 253, 0.55);
+  box-shadow: 0 14px 36px -4px var(--memora-blue-glow), inset 0 1px 0 0 rgba(255, 255, 255, 0.38);
+}
+
+.btn--contrast {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.btn--contrast:hover {
+  box-shadow: 0 10px 30px -8px rgba(0, 161, 224, 0.35);
+}
+
+.btn--ghost {
+  background-color: rgba(255, 255, 255, 0.035);
+  color: var(--text-primary);
+  border: 1px solid var(--btn-secondary-border);
+  box-shadow: var(--surface-highlight);
+}
+
+[data-theme="light"] .btn--ghost {
+  background-color: var(--btn-secondary-bg);
+}
+
+.btn--ghost:hover {
+  border-color: var(--memora-blue);
+  background-color: var(--memora-blue-soft);
+  box-shadow: 0 8px 24px -10px rgba(0, 161, 224, 0.28), var(--surface-highlight-brand);
+}
+
+.btn--sm {
+  padding: 0.58rem 1.1rem;
+  font-size: 0.8125rem;
+}
+
+.btn--lg {
+  padding: 1rem 1.85rem;
+  font-size: 0.95rem;
+}
+
+/* 4. Chips / Eyebrow Badges (Estilo Google Sans Code do Antigravity)
+   Blindagem anti-esticamento: pílulas nunca ocupam 100% de um flex/grid column */
+.eyebrow-chip,
+.status-chip,
+.app-pill-blue,
+.step-card__num,
+.tbd-badge {
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.section-header .eyebrow-chip,
+.hero-content .eyebrow-chip,
+.liftoff-cta .eyebrow-chip {
+  align-self: center;
+}
+
+.eyebrow-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, rgba(19, 28, 46, 0.92) 0%, rgba(12, 18, 32, 0.92) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: var(--surface-highlight), 0 4px 16px -6px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #CBD5E1;
+}
+
+[data-theme="light"] .eyebrow-chip {
+  background: var(--bg-surface);
+  border-color: var(--border-subtle);
+  color: var(--text-secondary);
+  box-shadow: none;
+}
+
+.eyebrow-chip__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--memora-blue);
+  box-shadow: 0 0 8px var(--memora-blue);
+  animation: pulseDot 2.6s infinite ease-in-out;
+}
+
+/* Status Chips (Disponível vs. Em Breve / Roadmap) */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.status-chip--live {
+  background: rgba(0, 161, 224, 0.14);
+  color: var(--memora-blue);
+  border: 1px solid rgba(0, 161, 224, 0.4);
+}
+
+.status-chip--roadmap {
+  background: rgba(148, 163, 184, 0.12);
+  color: var(--text-secondary);
+  border: 1px dashed var(--border-strong);
+}
+
+/* 5. Molduras e Telas do App Memora (#FAFAF7 Travado — Seção 3.3)
+   Apresenta o app em tema claro perolado (#FAFAF7) dentro da página escura,
+   com contraste intencional e acabamento de janela flutuante Antigravity. */
+.app-stage-frame {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  padding: clamp(0.85rem, 2vw, 1.5rem);
+  background: linear-gradient(160deg, rgba(56, 189, 248, 0.14) 0%, rgba(15, 23, 42, 0.72) 45%, rgba(0, 161, 224, 0.1) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  box-shadow: var(--app-shadow), 0 0 90px -20px rgba(0, 161, 224, 0.26), inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(18px);
+}
+
+[data-theme="light"] .app-stage-frame {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.85), rgba(0, 161, 224, 0.08));
+  border-color: var(--border-strong);
+  box-shadow: var(--app-shadow);
+}
+
+.app-window {
+  background-color: var(--app-bg-pearl);
+  color: var(--app-text-primary);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--app-border);
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.app-window__topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.15rem;
+  background-color: #F3F3EE;
+  border-bottom: 1px solid var(--app-border);
+  font-size: 0.75rem;
+  color: var(--app-text-secondary);
+}
+
+.app-window__dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-window__dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #D4D4CE;
+}
+
+.app-window__dots span:first-child {
+  background-color: var(--memora-blue);
+}
+
+.app-window__body {
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
+  background-color: var(--app-bg-pearl);
+  color: var(--app-text-primary);
+}
+
+.app-window h3,
+.app-window h4,
+.app-window strong {
+  color: var(--app-text-primary);
+}
+
+.app-card-light {
+  background-color: var(--app-surface-card);
+  border: 1px solid var(--app-border);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  color: var(--app-text-primary);
+  box-shadow: 0 4px 14px rgba(17, 20, 26, 0.04);
+}
+
+.app-pill-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 161, 224, 0.12);
+  color: #007EB0;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* 6. Dock Interativo Flutuante (Inspiração Antigravity Suite Dock) */
+.antigravity-dock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-glass-strong);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(20px);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.dock-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.05rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.dock-item:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dock-item.is-active {
+  background: var(--memora-blue);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px var(--memora-blue-glow);
+}
+
+/* 7. Modal de Lista de Espera ([A DEFINIR: Destino do CTA]) */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(5, 7, 12, 0.78);
+  backdrop-filter: blur(12px);
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
+.modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  position: relative;
+  transform: translateY(16px) scale(0.98);
+  transition: transform var(--transition-fast);
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.65);
+}
+
+.modal-backdrop.is-open .modal-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  display: grid;
+  place-items: center;
+  color: var(--text-secondary);
+}
+
+.modal-close:hover {
+  color: var(--text-primary);
+  border-color: var(--memora-blue);
+}
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  transition: border-color var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--memora-blue);
+}
